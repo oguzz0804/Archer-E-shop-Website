@@ -49,7 +49,7 @@ const ItemDetailContainer = () => {
         <BlackButton
           text={`View other products`}
           link={`/category/all`}
-          submit={`boton BlackButtonTerminarCompra`}
+          submit={`boton BlackButtonTerminarPurchase`}
         />
       </div>
       <div style={{ display: stock }}>

@@ -35,7 +35,7 @@ const CardContainer = () => {
                   <td className="t-img">
                     <img src={item.item.imgUrl} alt={`img-${item.item.id}`} />
                   </td>
-                  <td className="t-nombre">{item.item.nombre}</td>
+                  <td className="t-yourName">{item.item.yourName}</td>
                   <td className="t-talles">
                     {/*Se utiliza para mapear un props.children*/}
                     {React.Children.map(item.talle, (t) => {
@@ -59,12 +59,12 @@ const CardContainer = () => {
               ))}
             </tfoot>
           </table>
-          <div className="trolley-terminarCompra">
+          <div className="trolley-terminarPurchase">
             <span>Total: $ {totalAPagar()}</span>
             <BlackButton
               text={`Finish your purchase`}
               link={`/form`}
-              submit={`boton BlackButtonTerminarCompra`}
+              submit={`boton BlackButtonTerminarPurchase`}
             />
           </div>
         </>

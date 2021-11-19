@@ -36,7 +36,7 @@ export const CartProvider = ({ children }) => {
       const nuevoTalle = talles.filter((item, i) => talles.indexOf(item) === i);
       const listaViejaDeItems = trolley.filter(
         (listaViejaDeItems) =>
-          listaViejaDeItems.item.nombre !== trolley[findPorId].item.nombre
+          listaViejaDeItems.item.yourName !== trolley[findPorId].item.yourName
       );
 
       const listaDeItems = [
@@ -69,7 +69,7 @@ export const CartProvider = ({ children }) => {
   };
 
   //Esta seria clear()
-  const terminarCompra = () => {
+  const terminarPurchase = () => {
     settrolley([]);
   };
 
@@ -81,7 +81,7 @@ export const CartProvider = ({ children }) => {
           addItem,
           removeItem,
           totalAPagar,
-          terminarCompra,
+          terminarPurchase,
         }}
       >
         {children}

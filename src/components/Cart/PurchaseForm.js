@@ -5,92 +5,76 @@ import "../../css/CartStyle/Form.css";
 import { BlackButton } from "../Button/BlackButton";
 
 export const PurchaseForm = () => {
-  const { trolley, totalAPagar, terminarCompra } =
+  const { trolley, totalAPagar, terminarPurchase } =
     React.useContext(cartContext);
 
-  const [compraFinalizada, setCompraFinalizada] = useState("none");
-  const [compraNoFinalizada, setNoCompraFinalizada] = useState("block");
+  const [purchaseFinalization, setPurchaseFinalization] = useState("none");
+  const [purchaseNoFinalization, setNoPurchaseFinalization] = useState("block");
 
-  const [nombre, setNombre] = useState("");
+  const [yourName, setYourName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [emailRepeat, setEmailRepeat] = useState("");
   const [direction, setDirection] = useState("");
   const [card, setCard] = useState("");
   const [code, setCode] = useState("");
-  const [cuota, setCuota] = useState("");
+  const [share, setShare] = useState("");
 
-  //id de la compra autogenerado por firebase
-  const [idCompra, setIdCompra] = useState("");
-  const cuotas = [0, 3, 6, 12];
 
-  const finalizarCompra = (ev) => {
+  const [idPurchase, setIdPurchase] = useState("");
+  const shares = [0, 3, 6, 12];
+
+  const finalizePurchase = (ev) => {
     ev.preventDefault();
 
-    //toLocaleString nos transcribe el dato de Date
-    const fechaDeLaCompra = new Date();
+
+    const fechPurchase = new Date();
     const total = totalAPagar();
 
-    const nuevaOrden = {
+    const newOrder = {
       buyer: {
         email: email,
         emailRepeat: emailRepeat,
-        nombre: nombre,
+        yourName: yourName,
         number: number,
         direction: direction,
-        cantidadDeCoutas: cuota,
-        codigoTarjeta: card,
-        codigoDeSeguridad: code,
+        amountOfFee: share,
+        codeCard: card,
+        securityCode: code,
       },
       items: {
         trolley: [...trolley],
       },
-      fechaDeCompra: {
-        fecha: fechaDeLaCompra.toLocaleString(),
+      fechaDePurchase: {
+        fecha: fechPurchase.toLocaleString(),
       },
       total: {
         total: total,
       },
     };
 
-    const ordenesData = getFirestore();
-    const ordenes = ordenesData.collection("compra");
+    const ordersData = getFirestore();
+    const orders = ordersData.collection("purchase");
 
-    ordenes
-      .add(nuevaOrden)
+    orders
+      .add(newOrder)
       .then(({ id }) => {
-        setIdCompra(id);
+        setIdPurchase(id);
         setEmail("");
         setEmailRepeat("");
-        setNombre("");
+        setYourName("");
         setDirection("");
         setNumber("");
         setCard("");
         setCode("");
-        setCuota("");
-        setCompraFinalizada("block");
-        setNoCompraFinalizada("none");
+        setShare("");
+        setPurchaseFinalization("block");
+        setNoPurchaseFinalization("none");
       })
       .catch((error) => {
         console.error(error);
       });
 
-    //Actualizacion Stock de a un producto a la vez => FUNCIONA
-    // const idProductoElegido = trolley.map((item) => {
-    //   return item.item.id;
-    // });
-    // const cantidadElegidaProd = trolley.map((item) => item.cantidad);
-    // const stockProd = trolley.map((item) => item.item.stock);
-    // const nuevoStock = stockProd - cantidadElegidaProd;
-    // console.log(nuevoStock);
-
-    // const productos = getFirestore();
-    // const actualizarProductos = productos
-    //   .collection("items")
-    //   .doc(`${idProductoElegido}`);
-    // actualizarProductos.update({ stock: nuevoStock });
-
-    //ACTUALIZACION VARIOS
 
     const db = getFirestore();
     const ItemsCollection = db.collection("items");
@@ -105,7 +89,7 @@ export const PurchaseForm = () => {
       .commit()
       .then(() => {
         console.log("Termino bien");
-        terminarCompra();
+        terminarPurchase();
       })
       .catch((err) => console.log(err));
   };
@@ -119,7 +103,7 @@ export const PurchaseForm = () => {
 
   return (
     <>
-      <div style={{ display: compraNoFinalizada }}>
+      <div style={{ display: purchaseNoFinalization }}>
         <div>
           <h1
             style={{
@@ -140,8 +124,8 @@ export const PurchaseForm = () => {
                   type="text"
                   name="name"
                   placeholder=" Enter your name"
-                  value={nombre}
-                  onChange={(evento) => setNombre(evento.target.value)}
+                  value={yourName}
+                  onChange={(evento) => setYourName(evento.target.value)}
                 />
               </div>
               <div className="input">
@@ -231,12 +215,12 @@ export const PurchaseForm = () => {
                 <select
                   style={{ width: "40%" }}
                   onChange={(e) => {
-                    const cuotaSeleccionada = e.target.value;
-                    setCuota(cuotaSeleccionada);
+                    const shareSeleccionada = e.target.value;
+                    setShare(shareSeleccionada);
                   }}
                 >
                   <option value={""}>Choose</option>
-                  {cuotas.map((c) => (
+                  {shares.map((c) => (
                     <option key={`key-${c}`} value={c}>
                       {c}
                     </option>
@@ -251,18 +235,18 @@ export const PurchaseForm = () => {
                 justifyContent: "center",
               }}
             >
-              {nombre !== "" &&
+              {yourName !== "" &&
               number !== "" &&
               email === emailRepeat &&
               direction !== "" &&
               card !== "" &&
               code !== "" &&
-              cuota !== "" ? (
+              share !== "" ? (
                 <input
                   type="submit"
                   value="Sent"
-                  className="boton BlackButtonTerminarCompra"
-                  onClick={finalizarCompra}
+                  className="boton BlackButtonTerminarPurchase"
+                  onClick={finalizePurchase}
                   style={{ marginTop: "40px", height: "50px" }}
                 />
               ) : (
@@ -270,20 +254,20 @@ export const PurchaseForm = () => {
                   <input
                     type="submit"
                     value="Sent"
-                    className="boton BlackButtonTerminarCompra"
+                    className="boton BlackButtonTerminarPurchase"
                     onClick={completarDatos}
                     style={{ marginTop: "40px", height: "50px" }}
                   />
                 </>
               )}
             </div>
-            {nombre !== "" &&
+            {yourName !== "" &&
             number !== "" &&
             email === emailRepeat &&
             direction !== "" &&
             card !== "" &&
             code !== "" &&
-            cuota !== "" ? (
+            share !== "" ? (
               <div
                 className={`msjError ${
                   msjError === false ? "fadeOut2" : "fadeIn2"
@@ -304,9 +288,9 @@ export const PurchaseForm = () => {
         </div>
       </div>
       <div
-        className="mensajeCompraRealizada"
+        className="mensajePurchaseRealizada"
         style={{
-          display: compraFinalizada,
+          display: purchaseFinalization,
           textAlign: "center",
         }}
       >
@@ -330,14 +314,14 @@ export const PurchaseForm = () => {
               alignItems: "flex-start",
             }}
           >
-            <h3>Purchase ID: {idCompra}</h3>
+            <h3>Purchase ID: {idPurchase}</h3>
           </div>
 
           <div>
             <BlackButton
               text={"View more products"}
               link={"/"}
-              submit={"boton BlackButtonTerminarCompra"}
+              submit={"boton BlackButtonTerminarPurchase"}
             />
           </div>
         </div>

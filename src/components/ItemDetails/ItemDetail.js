@@ -26,13 +26,13 @@ export const ItemDetail = ({ item }) => {
           <div className="contenedor-imagen">
             <img
               src={item.imgUrl}
-              alt={item.nombre}
+              alt={item.yourName}
               className="contenedor__imagen"
             />
           </div>
           <div className="contenedor-detalles">
             <div className="detalles-titulo">
-              <h2>{item.nombre}</h2>
+              <h2>{item.yourName}</h2>
               <h3>$ {item.precio}</h3>
             </div>
             <ItemCount

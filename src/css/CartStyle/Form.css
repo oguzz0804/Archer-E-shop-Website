@@ -68,7 +68,7 @@ select {
   grid-area: code;
 }
 
-.mensajeCompraRealizada {
+.mensajePurchaseRealizada {
   box-shadow: 2px 8px 20px #ddd;
   transition: 0.5s linear;
   width: 900px;
@@ -76,18 +76,18 @@ select {
   padding: 50px;
 }
 
-.mensajeCompraRealizada h3 {
+.mensajePurchaseRealizada h3 {
   font-weight: 500;
   font-size: 30px;
 }
 
-.mensajeCompraRealizada div {
+.mensajePurchaseRealizada div {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.mensajeCompraRealizada div div {
+.mensajePurchaseRealizada div div {
   margin: 10px;
 }
 
@@ -173,7 +173,7 @@ select {
     justify-content: center;
   }
 
-  .mensajeCompraRealizada {
+  .mensajePurchaseRealizada {
     width: 450px;
   }
 }
@@ -189,7 +189,7 @@ select {
     display: block;
   }
 
-  .mensajeCompraRealizada {
+  .mensajePurchaseRealizada {
     width: 300px;
   }
 }

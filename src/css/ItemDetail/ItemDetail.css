@@ -101,7 +101,7 @@
   font-size: 20px;
 }
 
-.botonComprarGral button {
+.botonPurchaserGral button {
   margin-left: 30px;
   cursor: pointer;
   background-color: black;
@@ -116,7 +116,7 @@
   height: 40px;
 }
 
-.botonComprarGral button:active {
+.botonPurchaserGral button:active {
   position: relative;
   top: 1px;
 }
@@ -274,7 +274,7 @@
     margin: 40px 0;
   }
 
-  .botonComprarGral button {
+  .botonPurchaserGral button {
     padding: 5px 5px;
     width: 150px;
     height: 40px;

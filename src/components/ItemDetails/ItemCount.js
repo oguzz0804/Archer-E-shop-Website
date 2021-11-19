@@ -95,7 +95,7 @@ export const ItemCount = (props) => {
               +
             </button>
           </div>
-          <div className="botonComprarGral">
+          <div className="botonPurchaserGral">
             <button
               onClick={() =>
                 agregarProductoAltrolley(

@@ -15,7 +15,7 @@ export const ItemList = ({ items }) => {
             <BlackButton
               text={`View more products`}
               link={`/category/all`}
-              submit={`boton BlackButtonTerminarCompra`}
+              submit={`boton BlackButtonTerminarPurchase`}
             />
           </div>
         </div>
