@@ -56,7 +56,7 @@ h3 {
   margin: 20px 60px;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  grid-template-areas: "texto img1 img2";
+  grid-template-areas: "text img1 img2";
   align-items: center;
   justify-items: center;
 }
@@ -74,7 +74,7 @@ h3 {
   margin: 20px 60px;
   display: grid;
   grid-template-columns: 33% 33% 33%;
-  grid-template-areas: "img3 img4 texto2";
+  grid-template-areas: "img3 img4 text2";
   justify-items: center;
   align-items: center;
 }
@@ -96,7 +96,7 @@ h3 {
 }
 
 .home-flex {
-  grid-area: texto;
+  grid-area: text;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -114,7 +114,7 @@ h3 {
 }
 
 .home-flex2 {
-  grid-area: texto2;
+  grid-area: text2;
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -156,7 +156,7 @@ h3 {
     margin: 20px 60px;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "texto img1";
+    grid-template-areas: "text img1";
     align-items: center;
     justify-items: center;
   }
@@ -173,7 +173,7 @@ h3 {
     margin: 20px 60px;
     display: grid;
     grid-template-columns: 50% 50%;
-    grid-template-areas: "img3 texto2";
+    grid-template-areas: "img3 text2";
     justify-items: center;
     align-items: center;
   }
@@ -191,7 +191,7 @@ h3 {
     margin: 20px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-areas: "texto" "img1";
+    grid-template-areas: "text" "img1";
     align-items: center;
     justify-items: center;
   }
@@ -206,7 +206,7 @@ h3 {
     margin: 20px;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-areas: "texto2" "img3";
+    grid-template-areas: "text2" "img3";
     justify-items: center;
     align-items: center;
   }

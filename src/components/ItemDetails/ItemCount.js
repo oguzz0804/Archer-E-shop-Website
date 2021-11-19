@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SeleccionarTalle } from "./SeleccionarTalle";
+import { ChooseSize } from "./ChooseSize";
 import { BlackButton } from "../Button/BlackButton";
 
 export const ItemCount = (props) => {
@@ -48,16 +48,16 @@ export const ItemCount = (props) => {
     setObjeto({ ...objeto, talleElegido: talle });
   };
 
-  const [carritoContenedor, setCarritoContenedor] = useState("block");
-  const [botonCarrito, setBotonCarrito] = useState("none");
+  const [trolleyContenedor, settrolleyContenedor] = useState("block");
+  const [botontrolley, setBotontrolley] = useState("none");
 
-  //Funcion para el carrito y que valida onAdd y hace aparecer ver carrito
-  const agregarProductoAlCarrito = (stock, cantidad, talleElegido) => {
+  //Funcion para el trolley y que valida onAdd y hace aparecer ver trolley
+  const agregarProductoAltrolley = (stock, cantidad, talleElegido) => {
     if (talleElegido !== 0) {
       let cantidadDeProductosSeleccionados = cantidad;
       onAdd(cantidadDeProductosSeleccionados, talleElegido);
-      setBotonCarrito("block");
-      setCarritoContenedor("none");
+      setBotontrolley("block");
+      settrolleyContenedor("none");
       setTimeout(() => {
         setFade(true);
       }, 50);
@@ -70,10 +70,10 @@ export const ItemCount = (props) => {
 
   return (
     <>
-      <div style={{ display: carritoContenedor }}>
+      <div style={{ display: trolleyContenedor }}>
         <div className="contenedor-talle">
           <p>Choose your size:</p>
-          <SeleccionarTalle talle={talle} talleSelect={talleSelect} />
+          <ChooseSize talle={talle} talleSelect={talleSelect} />
         </div>
         <div className="contenedor-botones">
           <div className="botonesCantGral">
@@ -98,7 +98,7 @@ export const ItemCount = (props) => {
           <div className="botonComprarGral">
             <button
               onClick={() =>
-                agregarProductoAlCarrito(
+                agregarProductoAltrolley(
                   stockDisponible,
                   cantidadSeleccionada,
                   talleElegido
@@ -114,13 +114,13 @@ export const ItemCount = (props) => {
         className={`contenedor-agregado ${
           fade === false ? "fadeOut" : "fadeIn"
         }`}
-        style={{ display: botonCarrito }}
+        style={{ display: botontrolley }}
       >
         <h4>Add to cart!</h4>
         <BlackButton
-          texto={`View cart`}
+          text={`View cart`}
           link={`/cart`}
-          clase={`agregado-boton`}
+          submit={`agregado-boton`}
         />
       </div>
     </>

@@ -5,11 +5,11 @@ import "../../css/CartStyle/CardContainer.css";
 import { BlackButton } from "../Button/BlackButton";
 
 const CardContainer = () => {
-  const { carrito, removeItem, totalAPagar } = React.useContext(cartContext);
+  const { trolley, removeItem, totalAPagar } = React.useContext(cartContext);
 
   return (
     <>
-      {carrito.length !== 0 ? (
+      {trolley.length !== 0 ? (
         <>
           <div className="titulo">
             <h2>Your Cart</h2>
@@ -26,7 +26,7 @@ const CardContainer = () => {
               </tr>
             </thead>
             <tfoot>
-              {carrito.map((item) => (
+              {trolley.map((item) => (
                 <tr
                   className="trContenido"
                   key={`producto${item.item.id}`}
@@ -59,12 +59,12 @@ const CardContainer = () => {
               ))}
             </tfoot>
           </table>
-          <div className="carrito-terminarCompra">
+          <div className="trolley-terminarCompra">
             <span>Total: $ {totalAPagar()}</span>
             <BlackButton
-              texto={`Finish your purchase`}
+              text={`Finish your purchase`}
               link={`/form`}
-              clase={`boton BlackButtonTerminarCompra`}
+              submit={`boton BlackButtonTerminarCompra`}
             />
           </div>
         </>
@@ -75,9 +75,9 @@ const CardContainer = () => {
             <div className="subrayado"></div>
             <div style={{ marginTop: "20px" }}>
               <BlackButton
-                texto={`View products`}
+                text={`View products`}
                 link={`/category/all`}
-                clase={`boton BlackButtonVolverAProd`}
+                submit={`boton BlackButtonVolverAProd`}
               />
             </div>
           </div>

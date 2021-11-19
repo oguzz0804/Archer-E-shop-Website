@@ -21,9 +21,9 @@ export const PresentacionDelIndex = () => {
           <h2>Air Jordan I High og</h2>
           <p>The Jordan Family DNA is in all of us.</p>
           <BlackButton
-            texto={`Buy`}
+            text={`Buy`}
             link={`/category/Jordan`}
-            clase={`home-boton`}
+            submit={`home-boton`}
           />
         </div>
       </div>
@@ -38,9 +38,9 @@ export const PresentacionDelIndex = () => {
             Jordan during his time with the Chicago Bulls.
           </p>
           <BlackButton
-            texto={`Buy`}
+            text={`Buy`}
             link={`/category/Jordan`}
-            clase={`home-boton`}
+            submit={`home-boton`}
           />
         </div>
         <img src={Nike4} className="img1" alt="imagen de zapatilla Nike" />
@@ -60,9 +60,9 @@ export const PresentacionDelIndex = () => {
             the Yeezy Boost sneakers line up.
           </p>
           <BlackButton
-            texto={`Buy`}
+            text={`Buy`}
             link={`/category/Yeezy`}
-            clase={`home-boton`}
+            submit={`home-boton`}
           />
         </div>
       </div>

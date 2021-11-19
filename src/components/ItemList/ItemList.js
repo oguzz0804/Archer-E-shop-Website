@@ -13,9 +13,9 @@ export const ItemList = ({ items }) => {
           <div className="mensajeSinStock">
             <h3>out of stock</h3>
             <BlackButton
-              texto={`View more products`}
+              text={`View more products`}
               link={`/category/all`}
-              clase={`boton BlackButtonTerminarCompra`}
+              submit={`boton BlackButtonTerminarCompra`}
             />
           </div>
         </div>

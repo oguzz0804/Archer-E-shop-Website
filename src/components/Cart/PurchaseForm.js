@@ -5,7 +5,7 @@ import "../../css/CartStyle/Form.css";
 import { BlackButton } from "../Button/BlackButton";
 
 export const PurchaseForm = () => {
-  const { carrito, totalAPagar, terminarCompra } =
+  const { trolley, totalAPagar, terminarCompra } =
     React.useContext(cartContext);
 
   const [compraFinalizada, setCompraFinalizada] = useState("none");
@@ -43,7 +43,7 @@ export const PurchaseForm = () => {
         codigoDeSeguridad: code,
       },
       items: {
-        carrito: [...carrito],
+        trolley: [...trolley],
       },
       fechaDeCompra: {
         fecha: fechaDeLaCompra.toLocaleString(),
@@ -76,11 +76,11 @@ export const PurchaseForm = () => {
       });
 
     //Actualizacion Stock de a un producto a la vez => FUNCIONA
-    // const idProductoElegido = carrito.map((item) => {
+    // const idProductoElegido = trolley.map((item) => {
     //   return item.item.id;
     // });
-    // const cantidadElegidaProd = carrito.map((item) => item.cantidad);
-    // const stockProd = carrito.map((item) => item.item.stock);
+    // const cantidadElegidaProd = trolley.map((item) => item.cantidad);
+    // const stockProd = trolley.map((item) => item.item.stock);
     // const nuevoStock = stockProd - cantidadElegidaProd;
     // console.log(nuevoStock);
 
@@ -96,7 +96,7 @@ export const PurchaseForm = () => {
     const ItemsCollection = db.collection("items");
     const batch = getFirestore().batch();
 
-    carrito.forEach((c) => {
+    trolley.forEach((c) => {
       batch.update(ItemsCollection.doc(`${c.item.id}`), {
         stock: c.item.stock - c.cantidad,
       });
@@ -335,9 +335,9 @@ export const PurchaseForm = () => {
 
           <div>
             <BlackButton
-              texto={"View more products"}
+              text={"View more products"}
               link={"/"}
-              clase={"boton BlackButtonTerminarCompra"}
+              submit={"boton BlackButtonTerminarCompra"}
             />
           </div>
         </div>

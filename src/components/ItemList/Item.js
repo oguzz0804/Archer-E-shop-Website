@@ -26,9 +26,9 @@ export const Item = ({ item }) => {
           {stock !== 0 ? "Available stock" : "No stock"}
         </span>
         <BlackButton
-          texto={`View details`}
+          text={`View details`}
           link={`/item/${item.id}`}
-          clase={`home-boton`}
+          submit={`home-boton`}
         />
       </div>
     </div>

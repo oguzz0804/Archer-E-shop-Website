@@ -3,9 +3,9 @@ import CartIcon from "../../images/logos/shopping-cart.png";
 import { cartContext } from "../../context/CartContext";
 
 export default function CartWidget() {
-  const { carrito } = React.useContext(cartContext);
+  const { trolley } = React.useContext(cartContext);
 
-  const cart = carrito.map((item) => item.cantidad);
+  const cart = trolley.map((item) => item.cantidad);
 
   let itemsTotal = cart.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
@@ -15,7 +15,7 @@ export default function CartWidget() {
   return (
     <div className="nav-cart">
       {itemsTotal !== 0 ? <span>{itemsTotal}</span> : <></>}
-      <img src={CartIcon} width="25" alt="carrito" />
+      <img src={CartIcon} width="25" alt="trolley" />
     </div>
   );
 }

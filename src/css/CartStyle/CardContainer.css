@@ -105,14 +105,14 @@ th {
   top: 1px;
 }
 
-.carrito-terminarCompra {
+.trolley-terminarCompra {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.carrito-terminarCompra span {
+.trolley-terminarCompra span {
   margin-bottom: 20px;
   font-size: 30px;
   text-transform: uppercase;

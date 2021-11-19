@@ -47,9 +47,9 @@ const ItemDetailContainer = () => {
       <div className="productoNoExiste" style={{ display: sinStock }}>
         <h3>This product does not exist</h3>
         <BlackButton
-          texto={`View other products`}
+          text={`View other products`}
           link={`/category/all`}
-          clase={`boton BlackButtonTerminarCompra`}
+          submit={`boton BlackButtonTerminarCompra`}
         />
       </div>
       <div style={{ display: stock }}>

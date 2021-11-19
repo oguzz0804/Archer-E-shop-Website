@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const BlackButton = ({ texto, link, clase }) => {
+export const BlackButton = ({ text, link, submit }) => {
   return (
     <Link to={link}>
-      <button className={`${clase}`} style={{ color: "white" }}>
-        {texto}
+      <button className={`${submit}`} style={{ color: "white" }}>
+        {text}
       </button>
     </Link>
   );
