@@ -13,23 +13,23 @@ import Yeezy2 from "../../images/sneaker/yeezy/2.jfif";
 
 import { BlackButton } from "../Button/BlackButton";
 
-export const PresentacionDelIndex = () => {
+export const IndexPresentation = () => {
   return (
     <div style={{ marginBottom: "100px" }}>
-      <div className="portada">
-        <div className="portada-detalles">
+      <div className="coverPage">
+        <div className="coverPage-details">
           <h2>Air Jordan I High og</h2>
           <p>The Jordan Family DNA is in all of us.</p>
           <BlackButton
             text={`Buy`}
             link={`/category/Jordan`}
-            submit={`home-boton`}
+            submit={`home-button`}
           />
         </div>
       </div>
-      <div className="productos">
+      <div className="products">
         <div className="home-flex">
-          <img src={NikeLogo} width="120" alt="Logo extraido de FlatIcon" />
+          <img src={NikeLogo} width="120" alt="FlatIcon" />
           <h3>Air Jordan</h3>
           <p>
             Air Jordan is an American brand of basketball shoes, athletic,
@@ -40,17 +40,17 @@ export const PresentacionDelIndex = () => {
           <BlackButton
             text={`Buy`}
             link={`/category/Jordan`}
-            submit={`home-boton`}
+            submit={`home-button`}
           />
         </div>
-        <img src={Nike4} className="img1" alt="imagen de zapatilla Nike" />
-        <img src={Nike6} className="img2" alt="imagen de zapatilla Nike" />
+        <img src={Nike4} className="img1" alt="Nike" />
+        <img src={Nike6} className="img2" alt="Nike" />
       </div>
-      <div className="productos2">
-        <img src={Yeezy1} className="img3" alt="imagen de zapatilla Yeezy" />
-        <img src={Yeezy2} className="img4" alt="imagen de zapatilla Yeezy" />
+      <div className="products2">
+        <img src={Yeezy1} className="img3" alt="Yeezy" />
+        <img src={Yeezy2} className="img4" alt="Yeezy" />
         <div className="home-flex2">
-          <img src={AdidasLogo} width="120" alt="Logo extraido de FlatIcon" />
+          <img src={AdidasLogo} width="120" alt="Logo FlatIcon" />
           <h3>Yeezy</h3>
           <p>
             Adidas Yeezy is a fashion collaboration between German sportswear
@@ -62,7 +62,7 @@ export const PresentacionDelIndex = () => {
           <BlackButton
             text={`Buy`}
             link={`/category/Yeezy`}
-            submit={`home-boton`}
+            submit={`home-button`}
           />
         </div>
       </div>

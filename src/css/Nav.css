@@ -79,18 +79,18 @@ nav ul li {
   list-style: none;
   display: inline-block;
 }
-nav ul li .botonNavBar {
+nav ul li .buttonNavBar {
   text-decoration: none;
   /* text-transform: uppercase; */
   color: black;
   padding: 0 15px;
   font-size: 17px;
 }
-.botonNavBar:hover {
+.buttonNavBar:hover {
   color: #0147bf;
 }
 
-.botonNavBarActive {
+.buttonNavBarActive {
   color: #0147bf;
 }
 

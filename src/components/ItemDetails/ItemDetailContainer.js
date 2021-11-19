@@ -33,7 +33,7 @@ const ItemDetailContainer = () => {
           setProductoDetalle(detalle);
         })
         .catch((error) => {
-          console.error("Error al traer los contactos", error);
+          console.error("Error", error);
         });
     };
     obtenerDatosById();
@@ -41,7 +41,7 @@ const ItemDetailContainer = () => {
 
   return (
     <div>
-      <div className="titulo">
+      <div className="title">
         <h2 className="">Product Details</h2>
       </div>
       <div className="productoNoExiste" style={{ display: sinStock }}>
@@ -49,7 +49,7 @@ const ItemDetailContainer = () => {
         <BlackButton
           text={`View other products`}
           link={`/category/all`}
-          submit={`boton BlackButtonTerminarPurchase`}
+          submit={`button BlackButtonFinishPurchase`}
         />
       </div>
       <div style={{ display: stock }}>

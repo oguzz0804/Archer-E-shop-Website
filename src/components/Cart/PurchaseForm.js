@@ -5,13 +5,13 @@ import "../../css/CartStyle/Form.css";
 import { BlackButton } from "../Button/BlackButton";
 
 export const PurchaseForm = () => {
-  const { trolley, totalAPagar, terminarPurchase } =
+  const { trolley, totalAPagar, finishPurchase } =
     React.useContext(cartContext);
 
   const [purchaseFinalization, setPurchaseFinalization] = useState("none");
   const [purchaseNoFinalization, setNoPurchaseFinalization] = useState("block");
 
-  const [yourName, setYourName] = useState("");
+  const [nombre, setProductName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [emailRepeat, setEmailRepeat] = useState("");
@@ -35,7 +35,7 @@ export const PurchaseForm = () => {
       buyer: {
         email: email,
         emailRepeat: emailRepeat,
-        yourName: yourName,
+        nombre: nombre,
         number: number,
         direction: direction,
         amountOfFee: share,
@@ -62,7 +62,7 @@ export const PurchaseForm = () => {
         setIdPurchase(id);
         setEmail("");
         setEmailRepeat("");
-        setYourName("");
+        setProductName("");
         setDirection("");
         setNumber("");
         setCard("");
@@ -82,14 +82,14 @@ export const PurchaseForm = () => {
 
     trolley.forEach((c) => {
       batch.update(ItemsCollection.doc(`${c.item.id}`), {
-        stock: c.item.stock - c.cantidad,
+        stock: c.item.stock - c.amount,
       });
     });
     batch
       .commit()
       .then(() => {
         console.log("Termino bien");
-        terminarPurchase();
+        finishPurchase();
       })
       .catch((err) => console.log(err));
   };
@@ -124,8 +124,8 @@ export const PurchaseForm = () => {
                   type="text"
                   name="name"
                   placeholder=" Enter your name"
-                  value={yourName}
-                  onChange={(evento) => setYourName(evento.target.value)}
+                  value={nombre}
+                  onChange={(evento) => setProductName(evento.target.value)}
                 />
               </div>
               <div className="input">
@@ -229,13 +229,13 @@ export const PurchaseForm = () => {
               </div>
             </form>
             <div
-              className="botonEnviarForm"
+              className="buttonEnviarForm"
               style={{
                 display: "flex",
                 justifyContent: "center",
               }}
             >
-              {yourName !== "" &&
+              {nombre !== "" &&
               number !== "" &&
               email === emailRepeat &&
               direction !== "" &&
@@ -245,7 +245,7 @@ export const PurchaseForm = () => {
                 <input
                   type="submit"
                   value="Sent"
-                  className="boton BlackButtonTerminarPurchase"
+                  className="button BlackButtonFinishPurchase"
                   onClick={finalizePurchase}
                   style={{ marginTop: "40px", height: "50px" }}
                 />
@@ -254,14 +254,14 @@ export const PurchaseForm = () => {
                   <input
                     type="submit"
                     value="Sent"
-                    className="boton BlackButtonTerminarPurchase"
+                    className="button BlackButtonFinishPurchase"
                     onClick={completarDatos}
                     style={{ marginTop: "40px", height: "50px" }}
                   />
                 </>
               )}
             </div>
-            {yourName !== "" &&
+            {nombre !== "" &&
             number !== "" &&
             email === emailRepeat &&
             direction !== "" &&
@@ -321,7 +321,7 @@ export const PurchaseForm = () => {
             <BlackButton
               text={"View more products"}
               link={"/"}
-              submit={"boton BlackButtonTerminarPurchase"}
+              submit={"button BlackButtonFinishPurchase"}
             />
           </div>
         </div>

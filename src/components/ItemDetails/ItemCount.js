@@ -7,103 +7,103 @@ export const ItemCount = (props) => {
   const { talle, initial, stock, onAdd } = props;
 
   const [fade, setFade] = useState(false);
-  const [objeto, setObjeto] = useState({
-    cantidadSeleccionada: parseInt(initial),
+  const [myObject, setMyObject] = useState({
+    amountSeleccionada: parseInt(initial),
     stockDisponible: parseInt(stock),
-    talleElegido: 0,
+    chooseSize: 0,
   });
 
   //Desestructuracion del state de ItemCount
-  const { cantidadSeleccionada, stockDisponible, talleElegido } = objeto;
+  const { amountSeleccionada, stockDisponible, chooseSize } = myObject;
 
-  const reducirCantidadProducto = (cantidad) => {
-    if (cantidad === 1) {
-      cantidad = 1;
-    } else if (cantidad === 0) {
-      cantidad = 0;
+  const reduceProductQuantity = (amount) => {
+    if (amount === 1) {
+      amount = 1;
+    } else if (amount === 0) {
+      amount = 0;
     } else {
-      cantidad -= 1;
+      amount -= 1;
     }
-    setObjeto({ ...objeto, cantidadSeleccionada: cantidad });
+    setMyObject({ ...myObject, amountSeleccionada: amount });
   };
 
-  const sumarCantidadProducto = (cantidad, stock) => {
-    cantidad < stock && stock !== 0 ? (cantidad += 1) : (cantidad = stock);
-    setObjeto({ ...objeto, cantidadSeleccionada: cantidad });
+  const addProductQuantity = (amount, stock) => {
+    amount < stock && stock !== 0 ? (amount += 1) : (amount = stock);
+    setMyObject({ ...myObject, amountSeleccionada: amount });
   };
 
-  const conocerStockDelProducto = (cantidad, stock) => {
+  const productStock = (amount, stock) => {
     if (stock !== 0) {
-      return cantidad;
-    } else if (cantidad === 0 && stock !== 0) {
-      return (cantidad = 1);
+      return amount;
+    } else if (amount === 0 && stock !== 0) {
+      return (amount = 1);
     } else {
-      cantidad = "Sin stock";
-      return cantidad;
+      amount = "No stock";
+      return amount;
     }
   };
 
-  //Seleccionar talle
   const talleSelect = (talle) => {
-    setObjeto({ ...objeto, talleElegido: talle });
+    setMyObject({ ...myObject, chooseSize: talle });
   };
 
   const [trolleyContenedor, settrolleyContenedor] = useState("block");
-  const [botontrolley, setBotontrolley] = useState("none");
+  const [buttonTrolley, setButtonTrolley] = useState("none");
 
   //Funcion para el trolley y que valida onAdd y hace aparecer ver trolley
-  const agregarProductoAltrolley = (stock, cantidad, talleElegido) => {
-    if (talleElegido !== 0) {
-      let cantidadDeProductosSeleccionados = cantidad;
-      onAdd(cantidadDeProductosSeleccionados, talleElegido);
-      setBotontrolley("block");
+  const addProductToCart = (stock, amount, chooseSize) => {
+    if (chooseSize !== 0) {
+      let amountDeProductosSeleccionados = amount;
+      onAdd(amountDeProductosSeleccionados, chooseSize);
+      setButtonTrolley("block");
       settrolleyContenedor("none");
       setTimeout(() => {
         setFade(true);
       }, 50);
     } else if (stock === 0) {
-      alert("No hay stock");
+      alert("No stock");
     } else {
-      alert("Seleccione un talle por favor");
+      alert("Select your size please");
     }
   };
 
   return (
     <>
       <div style={{ display: trolleyContenedor }}>
-        <div className="contenedor-talle">
+        <div className="myContainer-talle">
           <p>Choose your size:</p>
           <ChooseSize talle={talle} talleSelect={talleSelect} />
         </div>
-        <div className="contenedor-botones">
-          <div className="botonesCantGral">
+        <div className="myContainer-buttones">
+          <div className="buttonesCantGral">
             <button
-              className="cant-boton"
-              onClick={() => reducirCantidadProducto(cantidadSeleccionada)}
+              className="cant-button"
+              onClick={() => reduceProductQuantity(amountSeleccionada)}
             >
               -
             </button>
-            <span className="boton-span">
-              {conocerStockDelProducto(cantidadSeleccionada, stockDisponible)}
+            <span className="button-span">
+              {productStock(amountSeleccionada, stockDisponible)}
             </span>
             <button
-              className="cant-boton"
+              className="cant-button"
               onClick={() =>
-                sumarCantidadProducto(cantidadSeleccionada, stockDisponible)
+                addProductQuantity(amountSeleccionada, stockDisponible)
               }
             >
               +
             </button>
           </div>
-          <div className="botonPurchaserGral">
+          <div className="buttonPurchaserGral">
             <button
               onClick={() =>
-                agregarProductoAltrolley(
+                addProductToCart(
                   stockDisponible,
-                  cantidadSeleccionada,
-                  talleElegido
+                  amountSeleccionada,
+                  chooseSize
                 )
               }
+              className="purchaseButton"
             >
               Add to cart
             </button>
@@ -111,16 +111,16 @@ export const ItemCount = (props) => {
         </div>
       </div>
       <div
-        className={`contenedor-agregado ${
+        className={`myContainer-summarize ${
           fade === false ? "fadeOut" : "fadeIn"
         }`}
-        style={{ display: botontrolley }}
+        style={{ display: buttonTrolley }}
       >
         <h4>Add to cart!</h4>
         <BlackButton
           text={`View cart`}
           link={`/cart`}
-          submit={`agregado-boton`}
+          submit={`summarize-button`}
         />
       </div>
     </>

@@ -10,7 +10,7 @@
   margin-bottom: 30px;
 }
 
-.contenedorGeneral {
+.myContainerGeneral {
   box-shadow: 2px 8px 20px #ddd;
   transition: 0.5s linear;
   padding: 10px 10px;
@@ -21,24 +21,24 @@
   justify-self: center;
   grid-template-columns: 50% 50%;
   grid-template-areas:
-    "detalles img"
-    "detalles img"
-    "detalles img";
+    "details img"
+    "details img"
+    "details img";
 }
 
-.contenedor-imagen {
+.myContainer-imagen {
   grid-area: img;
   align-self: self-end;
   justify-self: end;
   margin-left: 30px;
 }
 
-.contenedor-imagen img {
+.myContainer-imagen img {
   width: 100%;
 }
 
-.contenedor-detalles {
-  grid-area: detalles;
+.myContainer-details {
+  grid-area: details;
   display: flex;
   flex-direction: column;
   margin-left: 20px;
@@ -46,39 +46,39 @@
   height: 100%;
 }
 
-.detalles-titulo h2 {
+.details-title h2 {
   color: #000000;
   font-size: 35px;
   text-transform: uppercase;
 }
 
-.detalles-titulo h3 {
+.details-title h3 {
   color: #7b7f85;
   font-size: 30px;
   font-weight: 600;
 }
 
-.contenedor-talle {
+.myContainer-talle {
   display: flex;
   align-items: center;
   margin: 20px 0;
 }
 
-.contenedor-talle p {
+.myContainer-talle p {
   margin: 0;
   padding-right: 15px;
   font-size: 20px;
   margin-bottom: 5px;
 }
 
-.contenedor-botones {
+.myContainer-buttones {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin: 40px 0;
 }
 
-.cant-boton {
+.cant-button {
   width: 35px;
   height: 35px;
   border-radius: 35%;
@@ -91,17 +91,17 @@
   font-size: 17px;
 }
 
-.cant-boton:active {
+.cant-button:active {
   position: relative;
   top: 1px;
 }
 
-.boton-span {
+.button-span {
   margin: 0 30px;
   font-size: 20px;
 }
 
-.botonPurchaserGral button {
+.purchaseButton {
   margin-left: 30px;
   cursor: pointer;
   background-color: black;
@@ -116,18 +116,18 @@
   height: 40px;
 }
 
-.botonPurchaserGral button:active {
+.purchaseButton:active {
   position: relative;
   top: 1px;
 }
 
-.contenedor-tarjetas {
+.myContainer-tarjetas {
   display: flex;
   align-items: flex-end;
   text-align: center;
 }
 
-.contenedor-tarjetas div {
+.myContainer-tarjetas div {
   margin-right: 20px;
 }
 
@@ -135,18 +135,18 @@
   width: 30px;
 }
 
-.contenedor-agregado {
+.myContainer-summarize {
   margin: 40px 10px;
 }
 
-.contenedor-agregado h4 {
+.myContainer-summarize h4 {
   font-size: 25px;
   color: #7b7f85;
   margin-bottom: 20px;
   text-transform: uppercase;
 }
 
-.contenedor-agregado .agregado-boton {
+.myContainer-summarize .summarize-button {
   cursor: pointer;
   background-color: black;
   border-radius: 28px;
@@ -161,7 +161,7 @@
 }
 
 @media only screen and (max-width: 830px) {
-  .contenedorGeneral {
+  .myContainerGeneral {
     box-shadow: 2px 8px 20px #ddd;
     transition: 0.5s linear;
     padding: 10px 10px;
@@ -171,22 +171,22 @@
     align-self: center;
     justify-self: center;
     grid-template-columns: 100%;
-    grid-template-areas: "img" "detalles";
+    grid-template-areas: "img" "details";
   }
 
-  .contenedor-imagen {
+  .myContainer-imagen {
     grid-area: img;
     align-self: center;
     justify-self: center;
     margin: 0 0 40px;
   }
 
-  .contenedor-imagen img {
+  .myContainer-imagen img {
     width: 100%;
   }
 
-  .contenedor-detalles {
-    grid-area: detalles;
+  .myContainer-details {
+    grid-area: details;
     display: flex;
     flex-direction: column;
     margin-left: 20px;
@@ -194,27 +194,27 @@
     height: 100%;
   }
 
-  .detalles-titulo h2 {
+  .details-title h2 {
     font-size: 35px;
   }
 
-  .detalles-titulo h3 {
+  .details-title h3 {
     color: #7b7f85;
     font-size: 30px;
   }
 
-  .contenedor-talle {
+  .myContainer-talle {
     display: flex;
     align-items: center;
     margin: 20px 0;
     justify-content: space-evenly;
   }
 
-  .contenedor-talle p {
+  .myContainer-talle p {
     font-size: 20px;
   }
 
-  .contenedor-botones {
+  .myContainer-buttones {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -222,20 +222,20 @@
     justify-content: center;
   }
 
-  .contenedor-tarjetas {
+  .myContainer-tarjetas {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
   }
 
-  .contenedor-agregado {
+  .myContainer-summarize {
     text-align: center;
   }
 }
 
 @media only screen and (max-width: 547px) {
-  .contenedorGeneral {
+  .myContainerGeneral {
     box-shadow: 2px 8px 20px #ddd;
     transition: 0.5s linear;
     display: grid;
@@ -244,14 +244,14 @@
     align-self: center;
     justify-self: center;
     grid-template-columns: 100%;
-    grid-template-areas: "img" "detalles";
+    grid-template-areas: "img" "details";
   }
-  .contenedor-imagen {
+  .myContainer-imagen {
     grid-area: img;
     margin: 10px 10px 20px;
   }
-  .contenedor-detalles {
-    grid-area: detalles;
+  .myContainer-details {
+    grid-area: details;
     display: flex;
     flex-direction: column;
     margin-left: 0;
@@ -259,7 +259,7 @@
     justify-content: space-evenly;
     height: 100%;
   }
-  .contenedor-talle {
+  .myContainer-talle {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -267,14 +267,14 @@
     justify-content: space-evenly;
   }
 
-  .contenedor-botones {
+  .myContainer-buttones {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 40px 0;
   }
 
-  .botonPurchaserGral button {
+  .purchaseButton {
     padding: 5px 5px;
     width: 150px;
     height: 40px;

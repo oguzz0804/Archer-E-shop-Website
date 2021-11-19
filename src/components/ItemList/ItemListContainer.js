@@ -8,8 +8,8 @@ import { Spinner } from "react-bootstrap";
 import { ItemList } from "./ItemList";
 
 const ItemListContainer = () => {
-  const [productos, setProductos] = useState([]);
-  const { categoryId: categoriaDelProd } = useParams();
+  const [products, setProductos] = useState([]);
+  const { categoryId: productCategory } = useParams();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -25,16 +25,16 @@ const ItemListContainer = () => {
           }
           // console.log("documentos: ", informacionBaseDatos.docs);
           setLoading(false);
-          const productos = informacionBaseDatos.docs.map((doc) => {
+          const products = informacionBaseDatos.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
           });
-          if (categoriaDelProd) {
-            const filtro = productos.filter(
-              (item) => item.categoria === categoriaDelProd
+          if (productCategory) {
+            const filtro = products.filter(
+              (item) => item.categoria === productCategory
             );
             setProductos(filtro);
           } else {
-            setProductos(productos);
+            setProductos(products);
           }
         })
         .catch((error) => {
@@ -42,16 +42,16 @@ const ItemListContainer = () => {
         });
     };
     obtenerDatos();
-  }, [categoriaDelProd]);
+  }, [productCategory]);
 
   return (
     <React.Fragment>
-      <div className="titulo">
+      <div className="title">
         <h2>EXPLORE OUR PRODUCTS</h2>
       </div>
       {loading === false ? (
         <div className="containerGralProd">
-          <ItemList items={productos} />
+          <ItemList items={products} />
         </div>
       ) : (
         <div

@@ -5,7 +5,7 @@ import { cartContext } from "../../context/CartContext";
 export default function CartWidget() {
   const { trolley } = React.useContext(cartContext);
 
-  const cart = trolley.map((item) => item.cantidad);
+  const cart = trolley.map((item) => item.amount);
 
   let itemsTotal = cart.reduce(
     (accumulator, currentValue) => accumulator + currentValue,

@@ -21,7 +21,7 @@ export default function Nav() {
 
   return (
     <div className="gralNav">
-      <div className="logo logoDesktop" alt="icono de FlatIcon">
+      <div className="logo logoDesktop" alt="icon FlatIcon">
         <Link to="/">
           <h1>Flex</h1>
         </Link>
@@ -30,7 +30,7 @@ export default function Nav() {
         <div className="menu" onClick={menuToggle}>
           <img src={Menu} width="25" alt="menu" />
         </div>
-        <div className="logo logoMobile" alt="icono de FlatIcon">
+        <div className="logo logoMobile" alt="icon FlatIcon">
           <Link to="/">
             <h1>Flex</h1>
           </Link>
@@ -40,7 +40,7 @@ export default function Nav() {
             <li>
               <NavLink
                 to="/category/all"
-                className="botonNavBar"
+                className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
                 All
@@ -49,7 +49,7 @@ export default function Nav() {
             <li>
               <NavLink
                 to="/category/Nike"
-                className="botonNavBar"
+                className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
                 Nike
@@ -58,7 +58,7 @@ export default function Nav() {
             <li>
               <NavLink
                 to="/category/Jordan"
-                className="botonNavBar"
+                className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
                 Jordan
@@ -67,7 +67,7 @@ export default function Nav() {
             <li>
               <NavLink
                 to="/category/Yeezy"
-                className="botonNavBar"
+                className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
                 Yeezy
@@ -78,7 +78,7 @@ export default function Nav() {
                 src={Close}
                 width="20"
                 onClick={menuToggle}
-                alt="cierre menu"
+                alt="menu"
               />
             </li>
           </ul>

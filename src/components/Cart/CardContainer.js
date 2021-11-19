@@ -11,7 +11,7 @@ const CardContainer = () => {
     <>
       {trolley.length !== 0 ? (
         <>
-          <div className="titulo">
+          <div className="title">
             <h2>Your Cart</h2>
             <div className="subrayado"></div>
           </div>
@@ -35,22 +35,22 @@ const CardContainer = () => {
                   <td className="t-img">
                     <img src={item.item.imgUrl} alt={`img-${item.item.id}`} />
                   </td>
-                  <td className="t-yourName">{item.item.yourName}</td>
+                  <td className="t-nombre">{item.item.nombre}</td>
                   <td className="t-talles">
                     {/*Se utiliza para mapear un props.children*/}
                     {React.Children.map(item.talle, (t) => {
                       return <span key={`talle-${t}`}>{t}</span>;
                     })}
                   </td>
-                  <td className="t-cantidad">
-                    {item.cantidad}
-                    {item.cantidad !== 1 ? " products" : " product"}
+                  <td className="t-amount">
+                    {item.amount}
+                    {item.amount !== 1 ? " products" : " product"}
                   </td>
                   <td className="t-precio">
                     <span>$ {item.item.precio}</span>
                     <button
                       onClick={() => removeItem(item)}
-                      className="boton botonRojo"
+                      className="button buttonRojo"
                     >
                       Remove
                     </button>
@@ -59,25 +59,25 @@ const CardContainer = () => {
               ))}
             </tfoot>
           </table>
-          <div className="trolley-terminarPurchase">
+          <div className="trolley-finishPurchase">
             <span>Total: $ {totalAPagar()}</span>
             <BlackButton
               text={`Finish your purchase`}
               link={`/form`}
-              submit={`boton BlackButtonTerminarPurchase`}
+              submit={`button BlackButtonFinishPurchase`}
             />
           </div>
         </>
       ) : (
         <>
-          <div className="titulo" style={{ margin: "100px 0" }}>
+          <div className="title" style={{ margin: "100px 0" }}>
             <h2>Your cart is empty</h2>
             <div className="subrayado"></div>
             <div style={{ marginTop: "20px" }}>
               <BlackButton
                 text={`View products`}
                 link={`/category/all`}
-                submit={`boton BlackButtonVolverAProd`}
+                submit={`button BlackButtonVolverAProd`}
               />
             </div>
           </div>

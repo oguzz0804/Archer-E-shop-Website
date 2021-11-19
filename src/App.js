@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //components
 import NavBar from "./components/Nav/NavBar";
-import { PresentacionDelIndex } from "./components/Home/PresentacionDelIndex";
+import { IndexPresentation } from "./components/Home/IndexPresentation";
 import ItemListContainer from "./components/ItemList/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetails/ItemDetailContainer";
 import CardContainer from "./components/Cart/CardContainer";
@@ -21,7 +21,7 @@ function App() {
 
         <Switch>
           <Route exact path="/">
-            <PresentacionDelIndex />
+            <IndexPresentation />
             <ItemListContainer />
           </Route>
 

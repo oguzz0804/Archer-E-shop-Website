@@ -15,24 +15,24 @@ import { cartContext } from "../../context/CartContext";
 export const ItemDetail = ({ item }) => {
   const { addItem } = React.useContext(cartContext);
 
-  const onAdd = (quantityToAdd, talleElegido) => {
-    addItem(quantityToAdd, talleElegido, item);
+  const onAdd = (quantityToAdd, chooseSize) => {
+    addItem(quantityToAdd, chooseSize, item);
   };
 
   return (
     <React.Fragment>
       {item !== undefined ? (
-        <div className="contenedorGeneral" key={`item-${item.id}`}>
-          <div className="contenedor-imagen">
+        <div className="myContainerGeneral" key={`item-${item.id}`}>
+          <div className="myContainer-imagen">
             <img
               src={item.imgUrl}
-              alt={item.yourName}
-              className="contenedor__imagen"
+              alt={item.nombre}
+              className="myContainer__imagen"
             />
           </div>
-          <div className="contenedor-detalles">
-            <div className="detalles-titulo">
-              <h2>{item.yourName}</h2>
+          <div className="myContainer-details">
+            <div className="details-title">
+              <h2>{item.nombre}</h2>
               <h3>$ {item.precio}</h3>
             </div>
             <ItemCount
@@ -42,7 +42,7 @@ export const ItemDetail = ({ item }) => {
               stock={item.stock}
               onAdd={onAdd}
             />
-            <div className="contenedor-tarjetas">
+            <div className="myContainer-tarjetas">
               <div className="contenido-tarjetas">
                 <img src={Tarjetas} alt="tarjetas disponibles" />
                 <p>All credit cards</p>

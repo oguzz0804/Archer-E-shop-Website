@@ -46,7 +46,7 @@
   text-decoration: none;
 }
 
-.itemCard-containerDetails button {
+.itemCard-containerDetailsbutton {
   display: block;
   cursor: pointer;
   background-color: black;
@@ -62,7 +62,7 @@
   margin: 10px auto;
 }
 
-.itemCard-containerDetails button:active {
+.itemCard-containerDetailsbutton:active {
   position: relative;
   top: 1px;
 }

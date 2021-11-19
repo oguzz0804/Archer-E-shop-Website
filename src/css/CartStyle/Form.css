@@ -22,7 +22,7 @@ form {
   align-items: center;
 }
 
-.botonEnviarForm {
+.buttonEnviarForm {
   width: 85%;
   grid-area: enviar;
   justify-self: end;
@@ -157,7 +157,7 @@ select {
     margin: 40px 0 0;
   }
 
-  .botonEnviarForm {
+  .buttonEnviarForm {
     grid-area: enviar;
     justify-self: center;
   }

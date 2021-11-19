@@ -12,10 +12,9 @@ export const ItemList = ({ items }) => {
         <div style={{ margin: "100px" }}>
           <div className="mensajeSinStock">
             <h3>out of stock</h3>
-            <BlackButton
-              text={`View more products`}
+            <BlackButton text={`View more products`}
               link={`/category/all`}
-              submit={`boton BlackButtonTerminarPurchase`}
+              submit={`button BlackButtonFinishPurchase`}
             />
           </div>
         </div>

@@ -5,8 +5,8 @@ export const ChooseSize = ({ talle, talleSelect }) => {
     <div>
       <select
         onChange={(e) => {
-          const talleElegido = e.target.value;
-          talleSelect(talleElegido);
+          const chooseSize = e.target.value;
+          talleSelect(chooseSize);
         }}
       >
         <option value={0}>Available stock</option>
