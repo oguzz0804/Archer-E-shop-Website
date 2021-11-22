@@ -7,10 +7,10 @@ export const ItemList = ({ items }) => {
   return (
     <>
       {items.length !== 0 ? (
-        items.map((item) => <Item key={`listGral-${item.id}`} item={item} />)
+        items.map((item) => <Item key={`generalList-${item.id}`} item={item} />)
       ) : (
         <div style={{ margin: "100px" }}>
-          <div className="mensajeSinStock">
+          <div className="outOfStockMessage">
             <h3>out of stock</h3>
             <BlackButton text={`View more products`}
               link={`/category/all`}

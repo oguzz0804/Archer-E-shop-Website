@@ -2,18 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../../css/Footer.css";
 
-//Logos
-import Ig from "../../images/logos/ig.png";
-import Fb from "../../images/logos/fb.png";
-import Wp from "../../images/logos/wp.png";
-
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="redes">
-        <img src={Ig} alt="instagram" />
-        <img src={Fb} alt="facebook" />
-        <img src={Wp} alt="whatsapp" />
+      <div className="socialMedia">
+        <a href="https://github.com/Archer-ecommerce/archer">
+          <img
+            src="https://img.icons8.com/color/48/000000/github--v3.png"
+            alt="github"
+          />
+        </a>
+        <img
+          src="https://img.icons8.com/color/54/000000/facebook.png"
+          alt="facebook"
+        />
+        <img
+          src="https://img.icons8.com/color/54/000000/instagram-new--v2.png"
+          alt="instagram"
+        />
+        <img
+          src="https://img.icons8.com/color/48/000000/twitter--v2.png"
+          alt="twitter"
+        />
       </div>
       <div className="links">
         <Link to={"/category/all"}>
@@ -29,8 +39,18 @@ export default function Footer() {
           <span>Yeezy</span>
         </Link>
       </div>
-      <div className="derechos">
-        <h5>All rights reserved</h5>
+
+      <div className="copyRights">
+        <h5>
+          All rights reserved by
+          <a
+            style={{ textDecoration: "none" }}
+            href="https://github.com/Archer-ecommerce/archer"
+          >
+            {" "}
+            Archer Team
+          </a>
+        </h5>
       </div>
     </div>
   );

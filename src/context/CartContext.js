@@ -1,6 +1,5 @@
 import React, { useEffect, useState, createContext } from "react";
 
-//Context
 export const cartContext = createContext();
 
 export const CartProvider = ({ children }) => {
@@ -12,62 +11,55 @@ export const CartProvider = ({ children }) => {
     }
   }, []);
 
-  // Local Storage Set
   useEffect(() => {
     localStorage.setItem("Cart", JSON.stringify(trolley));
   }, [trolley]);
 
-  const addItem = (amount, talle, itemNuevo) => {
-    //El método findIndex() devuelve el índice del primer elemento de un array que cumpla con la función de prueba proporcionada. En caso contrario devuelve -1.
-
-    //Aca hay que tener cuidado, porque el id en el firabesa hay que buscarlo dentro del item, pero dentro de la lista dentro de lista.item
-    const findPorId = trolley.findIndex(
-      (listaDeItems) => listaDeItems.item.id === itemNuevo.id
+  const addItem = (amount, mySize, newItem) => {
+    const findById = trolley.findIndex(
+      (itemsList) => itemsList.item.id === newItem.id
     );
 
-    //[...trolley] => sirve para que no se pisen los products
-    if (findPorId === -1) {
-      const listaDeItems = [...trolley, { item: itemNuevo, amount, talle }];
-      settrolley(listaDeItems);
-      // console.log("LISTA:", listaDeItems);
+    if (findById === -1) {
+      const itemsList = [...trolley, { item: newItem, amount, mySize }];
+      settrolley(itemsList);
     } else {
-      const nuevaCantidad = trolley[findPorId].amount + amount;
-      const talles = [trolley[findPorId].talle, talle];
-      const nuevoTalle = talles.filter((item, i) => talles.indexOf(item) === i);
-      const listaViejaDeItems = trolley.filter(
-        (listaViejaDeItems) =>
-          listaViejaDeItems.item.nombre !== trolley[findPorId].item.nombre
+      const newQuantity = trolley[findById].amount + amount;
+      const sizes = [trolley[findById].mySize, mySize];
+      const newSize = sizes.filter((item, i) => sizes.indexOf(item) === i);
+      const oldItemsList = trolley.filter(
+        (oldItemsList) =>
+          oldItemsList.item.productName !== trolley[findById].item.productName
       );
 
-      const listaDeItems = [
-        ...listaViejaDeItems,
+      const itemsList = [
+        ...oldItemsList,
         {
-          item: trolley[findPorId].item,
+          item: trolley[findById].item,
           amount:
-            nuevaCantidad <= itemNuevo.stock ? nuevaCantidad : itemNuevo.stock,
-          talle: nuevoTalle,
+            newQuantity <= newItem.stock ? newQuantity : newItem.stock,
+          mySize: newSize,
         },
       ];
-      settrolley(listaDeItems);
+      settrolley(itemsList);
     }
  
   };
 
   const removeItem = (item) => {
-    const nuevaLista = trolley.filter(
+    const newList = trolley.filter(
       (itemtrolley) => itemtrolley.item.id !== item.item.id
     );
-    settrolley(nuevaLista);
-    totalAPagar();
+    settrolley(newList);
+    totalToPay();
   };
 
-  const totalAPagar = () => {
+  const totalToPay = () => {
     let total = 0;
-    trolley.forEach((item) => (total += item.item.precio * item.amount));
+    trolley.forEach((item) => (total += item.item.price * item.amount));
     return total;
   };
 
-  //Esta seria clear()
   const finishPurchase = () => {
     settrolley([]);
   };
@@ -79,7 +71,7 @@ export const CartProvider = ({ children }) => {
           trolley,
           addItem,
           removeItem,
-          totalAPagar,
+          totalToPay,
           finishPurchase,
         }}
       >

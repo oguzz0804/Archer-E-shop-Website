@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import "../../css/Nav.css";
-
-//Import components
 import CartWidget from "./CartWidget";
-
-//Importo imagenes
 import Menu from "../../images/bars-solid.svg";
 import Close from "../../images/times-solid.svg";
 
 export default function Nav() {
-  //Menu togle
   const [state, setState] = useState({ toggle: false });
 
   function menuToggle() {
@@ -20,7 +15,7 @@ export default function Nav() {
   const { toggle } = state;
 
   return (
-    <div className="gralNav">
+    <div className="productLinks">
       <div className="logo logoDesktop" alt="icon FlatIcon">
         <Link to="/">
           <h1>Flex</h1>

@@ -5,56 +5,56 @@ import "../../css/CartStyle/Form.css";
 import { BlackButton } from "../Button/BlackButton";
 
 export const PurchaseForm = () => {
-  const { trolley, totalAPagar, finishPurchase } =
+  const { trolley, totalToPay, finishPurchase } =
     React.useContext(cartContext);
 
   const [purchaseFinalization, setPurchaseFinalization] = useState("none");
   const [purchaseNoFinalization, setNoPurchaseFinalization] = useState("block");
 
-  const [nombre, setProductName] = useState("");
+  const [customerName, setCustomerName] = useState("");
   const [number, setNumber] = useState("");
   const [email, setEmail] = useState("");
   const [emailRepeat, setEmailRepeat] = useState("");
   const [direction, setDirection] = useState("");
   const [card, setCard] = useState("");
   const [code, setCode] = useState("");
-  const [share, setShare] = useState("");
+  const [installment, setInstallment] = useState("");
 
-
+  
   const [idPurchase, setIdPurchase] = useState("");
-  const shares = [0, 3, 6, 12];
+  const installments = [0, 3, 6, 12];
 
   const finalizePurchase = (ev) => {
     ev.preventDefault();
 
-
-    const fechPurchase = new Date();
-    const total = totalAPagar();
+    //date
+    const fetchPurchase = new Date();
+    const total = totalToPay();
 
     const newOrder = {
       buyer: {
         email: email,
         emailRepeat: emailRepeat,
-        nombre: nombre,
+        customerName: customerName,
         number: number,
         direction: direction,
-        amountOfFee: share,
+        amountOfFee: installment,
         codeCard: card,
         securityCode: code,
       },
       items: {
         trolley: [...trolley],
       },
-      fechaDePurchase: {
-        fecha: fechPurchase.toLocaleString(),
+      fetchProductInfo: {
+        purchaseDate: fetchPurchase.toLocaleString(),
       },
       total: {
         total: total,
       },
     };
 
-    const ordersData = getFirestore();
-    const orders = ordersData.collection("purchase");
+    const orderData = getFirestore();
+    const orders = orderData.collection("purchase product");
 
     orders
       .add(newOrder)
@@ -62,19 +62,18 @@ export const PurchaseForm = () => {
         setIdPurchase(id);
         setEmail("");
         setEmailRepeat("");
-        setProductName("");
+        setCustomerName("");
         setDirection("");
         setNumber("");
         setCard("");
         setCode("");
-        setShare("");
+        setInstallment("");
         setPurchaseFinalization("block");
         setNoPurchaseFinalization("none");
       })
       .catch((error) => {
         console.error(error);
       });
-
 
     const db = getFirestore();
     const ItemsCollection = db.collection("items");
@@ -88,7 +87,7 @@ export const PurchaseForm = () => {
     batch
       .commit()
       .then(() => {
-        console.log("Termino bien");
+        console.log("Success");
         finishPurchase();
       })
       .catch((err) => console.log(err));
@@ -96,7 +95,7 @@ export const PurchaseForm = () => {
 
   const [msjError, setMsjError] = useState(false);
 
-  const completarDatos = (ev) => {
+  const completeData = (ev) => {
     ev.preventDefault();
     setMsjError(true);
   };
@@ -124,8 +123,8 @@ export const PurchaseForm = () => {
                   type="text"
                   name="name"
                   placeholder=" Enter your name"
-                  value={nombre}
-                  onChange={(evento) => setProductName(evento.target.value)}
+                  value={customerName}
+                  onChange={(event) => setCustomerName(event.target.value)}
                 />
               </div>
               <div className="input">
@@ -135,7 +134,7 @@ export const PurchaseForm = () => {
                   name="number"
                   placeholder=" Enter your number"
                   value={number}
-                  onChange={(evento) => setNumber(evento.target.value)}
+                  onChange={(event) => setNumber(event.target.value)}
                 />
               </div>
               <div className="input">
@@ -145,7 +144,7 @@ export const PurchaseForm = () => {
                   name="direction"
                   placeholder=" Enter your direction"
                   value={direction}
-                  onChange={(evento) => setDirection(evento.target.value)}
+                  onChange={(event) => setDirection(event.target.value)}
                 />
               </div>
               <div className="input">
@@ -155,7 +154,7 @@ export const PurchaseForm = () => {
                   name="email"
                   placeholder=" Enter your email"
                   value={email}
-                  onChange={(evento) => setEmail(evento.target.value)}
+                  onChange={(event) => setEmail(event.target.value)}
                 />
               </div>
               <div className="input">
@@ -165,11 +164,11 @@ export const PurchaseForm = () => {
                   name="emailRepeat"
                   placeholder=" Enter your email"
                   value={emailRepeat}
-                  onChange={(evento) => setEmailRepeat(evento.target.value)}
+                  onChange={(event) => setEmailRepeat(event.target.value)}
                 />
               </div>
               <div className="input">
-                <div className="inputDoble">
+                <div className="doubleEvent">
                   <div style={{ padding: "5px" }} className="card-number">
                     <label htmlFor="card" style={{ marginLeft: "10px" }}>
                       Card number:
@@ -179,9 +178,9 @@ export const PurchaseForm = () => {
                       name="card"
                       placeholder=" Card number"
                       value={card}
-                      onChange={(evento) => {
-                        const codigo = evento.target.value.slice(0, 16);
-                        setCard(codigo);
+                      onChange={(event) => {
+                        const cardCode = event.target.value.slice(0, 16);
+                        setCard(cardCode);
                       }}
                     />
                   </div>
@@ -194,9 +193,9 @@ export const PurchaseForm = () => {
                       name="code"
                       placeholder=" Code"
                       value={code}
-                      onChange={(evento) => {
-                        const codigo = evento.target.value.slice(0, 3);
-                        setCode(codigo);
+                      onChange={(event) => {
+                        const cardCode = event.target.value.slice(0, 3);
+                        setCode(cardCode);
                       }}
                     />
                   </div>
@@ -215,12 +214,12 @@ export const PurchaseForm = () => {
                 <select
                   style={{ width: "40%" }}
                   onChange={(e) => {
-                    const shareSeleccionada = e.target.value;
-                    setShare(shareSeleccionada);
+                    const selectedFee = e.target.value;
+                    setInstallment(selectedFee);
                   }}
                 >
                   <option value={""}>Choose</option>
-                  {shares.map((c) => (
+                  {installments.map((c) => (
                     <option key={`key-${c}`} value={c}>
                       {c}
                     </option>
@@ -229,19 +228,19 @@ export const PurchaseForm = () => {
               </div>
             </form>
             <div
-              className="buttonEnviarForm"
+              className="sendFormButton"
               style={{
                 display: "flex",
                 justifyContent: "center",
               }}
             >
-              {nombre !== "" &&
+              {customerName !== "" &&
               number !== "" &&
               email === emailRepeat &&
               direction !== "" &&
               card !== "" &&
               code !== "" &&
-              share !== "" ? (
+              installment !== "" ? (
                 <input
                   type="submit"
                   value="Sent"
@@ -255,19 +254,19 @@ export const PurchaseForm = () => {
                     type="submit"
                     value="Sent"
                     className="button BlackButtonFinishPurchase"
-                    onClick={completarDatos}
+                    onClick={completeData}
                     style={{ marginTop: "40px", height: "50px" }}
                   />
                 </>
               )}
             </div>
-            {nombre !== "" &&
+            {customerName !== "" &&
             number !== "" &&
             email === emailRepeat &&
             direction !== "" &&
             card !== "" &&
             code !== "" &&
-            share !== "" ? (
+            installment !== "" ? (
               <div
                 className={`msjError ${
                   msjError === false ? "fadeOut2" : "fadeIn2"
@@ -288,7 +287,7 @@ export const PurchaseForm = () => {
         </div>
       </div>
       <div
-        className="mensajePurchaseRealizada"
+        className="purchaseCompletedMessage"
         style={{
           display: purchaseFinalization,
           textAlign: "center",

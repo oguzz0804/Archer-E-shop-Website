@@ -3,18 +3,16 @@ import { ChooseSize } from "./ChooseSize";
 import { BlackButton } from "../Button/BlackButton";
 
 export const ItemCount = (props) => {
-  //Desestructuracion del props
-  const { talle, initial, stock, onAdd } = props;
+  const { mySize, initial, stock, onAdd } = props;
 
   const [fade, setFade] = useState(false);
   const [myObject, setMyObject] = useState({
-    amountSeleccionada: parseInt(initial),
-    stockDisponible: parseInt(stock),
+    selectedAmount: parseInt(initial),
+    availableStock: parseInt(stock),
     chooseSize: 0,
   });
 
-  //Desestructuracion del state de ItemCount
-  const { amountSeleccionada, stockDisponible, chooseSize } = myObject;
+  const { selectedAmount, availableStock, chooseSize } = myObject;
 
   const reduceProductQuantity = (amount) => {
     if (amount === 1) {
@@ -24,12 +22,12 @@ export const ItemCount = (props) => {
     } else {
       amount -= 1;
     }
-    setMyObject({ ...myObject, amountSeleccionada: amount });
+    setMyObject({ ...myObject, selectedAmount: amount });
   };
 
   const addProductQuantity = (amount, stock) => {
     amount < stock && stock !== 0 ? (amount += 1) : (amount = stock);
-    setMyObject({ ...myObject, amountSeleccionada: amount });
+    setMyObject({ ...myObject, selectedAmount: amount });
   };
 
   const productStock = (amount, stock) => {
@@ -43,20 +41,19 @@ export const ItemCount = (props) => {
     }
   };
 
-  const talleSelect = (talle) => {
-    setMyObject({ ...myObject, chooseSize: talle });
+  const selectSize = (mySize) => {
+    setMyObject({ ...myObject, chooseSize: mySize });
   };
 
-  const [trolleyContenedor, settrolleyContenedor] = useState("block");
+  const [trolleyContainer, setTrolleyContainer] = useState("block");
   const [buttonTrolley, setButtonTrolley] = useState("none");
 
-  //Funcion para el trolley y que valida onAdd y hace aparecer ver trolley
   const addProductToCart = (stock, amount, chooseSize) => {
     if (chooseSize !== 0) {
-      let amountDeProductosSeleccionados = amount;
-      onAdd(amountDeProductosSeleccionados, chooseSize);
+      let selectedProductsAmount = amount;
+      onAdd(selectedProductsAmount, chooseSize);
       setButtonTrolley("block");
-      settrolleyContenedor("none");
+      setTrolleyContainer("none");
       setTimeout(() => {
         setFade(true);
       }, 50);
@@ -69,37 +66,37 @@ export const ItemCount = (props) => {
 
   return (
     <>
-      <div style={{ display: trolleyContenedor }}>
-        <div className="myContainer-talle">
+      <div style={{ display: trolleyContainer }}>
+        <div className="myContainer-mySize">
           <p>Choose your size:</p>
-          <ChooseSize talle={talle} talleSelect={talleSelect} />
+          <ChooseSize mySize={mySize} selectSize={selectSize} />
         </div>
-        <div className="myContainer-buttones">
-          <div className="buttonesCantGral">
+        <div className="myContainer-buttons">
+          <div>
             <button
-              className="cant-button"
-              onClick={() => reduceProductQuantity(amountSeleccionada)}
+              className="count-button"
+              onClick={() => reduceProductQuantity(selectedAmount)}
             >
               -
             </button>
             <span className="button-span">
-              {productStock(amountSeleccionada, stockDisponible)}
+              {productStock(selectedAmount, availableStock)}
             </span>
             <button
-              className="cant-button"
+              className="count-button"
               onClick={() =>
-                addProductQuantity(amountSeleccionada, stockDisponible)
+                addProductQuantity(selectedAmount, availableStock)
               }
             >
               +
             </button>
           </div>
-          <div className="buttonPurchaserGral">
+          <div>
             <button
               onClick={() =>
                 addProductToCart(
-                  stockDisponible,
-                  amountSeleccionada,
+                  availableStock,
+                  selectedAmount,
                   chooseSize
                 )
               }

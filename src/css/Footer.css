@@ -8,11 +8,11 @@
   justify-content: center;
 }
 
-.footer .redes {
+.footer .socialMedia {
   display: flex;
 }
 
-.footer .redes img {
+.footer .socialMedia img {
   width: 40px;
   margin: 20px 10px;
   cursor: pointer;
@@ -32,7 +32,7 @@
   cursor: pointer;
 }
 
-.footer .derechos {
+.footer .copyRights {
   color: white;
   margin: 20px 0;
   cursor: pointer;

@@ -3,45 +3,42 @@ import { useParams } from "react-router";
 import "../../css/Product.css";
 import { getFirestore } from "../../firebase/firebaseConfig";
 import { Spinner } from "react-bootstrap";
-
-//components
 import { ItemList } from "./ItemList";
 
 const ItemListContainer = () => {
-  const [products, setProductos] = useState([]);
+  const [products, setProducts] = useState([]);
   const { categoryId: productCategory } = useParams();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const obtenerDatos = () => {
+    const getInfo = () => {
       setLoading(true);
       const db = getFirestore();
       const itemCollection = db.collection("items");
       itemCollection
         .get()
-        .then((informacionBaseDatos) => {
-          if (informacionBaseDatos.size === 0) {
-            console.log("No Hay resultados");
+        .then((informationBaseData) => {
+          if (informationBaseData.size === 0) {
+            console.log("No Results");
           }
-          // console.log("documentos: ", informacionBaseDatos.docs);
           setLoading(false);
-          const products = informacionBaseDatos.docs.map((doc) => {
+          const products = informationBaseData.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
           });
           if (productCategory) {
-            const filtro = products.filter(
-              (item) => item.categoria === productCategory
+            const filterProducts = products.filter(
+              (item) => item.category === productCategory
             );
-            setProductos(filtro);
+            setProducts(filterProducts);
           } else {
-            setProductos(products);
+            setProducts(products);
           }
         })
         .catch((error) => {
-          console.error("Error al traer los contactos", error);
+          console.error("Failed to bring products", error);
         });
     };
-    obtenerDatos();
+    getInfo();
   }, [productCategory]);
 
   return (
@@ -50,7 +47,7 @@ const ItemListContainer = () => {
         <h2>EXPLORE OUR PRODUCTS</h2>
       </div>
       {loading === false ? (
-        <div className="containerGralProd">
+        <div className="productContainer">
           <ItemList items={products} />
         </div>
       ) : (

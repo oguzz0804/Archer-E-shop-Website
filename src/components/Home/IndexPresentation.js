@@ -1,12 +1,10 @@
 import React from "react";
 import "../../css/Product.css";
 
-//Imagenes Jordan
 import NikeLogo from "../../images/logos/nike.png";
 import Nike4 from "../../images/sneaker/home/home4.jfif";
 import Nike6 from "../../images/sneaker/home/home6.jfif";
 
-//Imagenes Yeezy
 import AdidasLogo from "../../images/logos/adidas.png";
 import Yeezy1 from "../../images/sneaker/yeezy/1.jfif";
 import Yeezy2 from "../../images/sneaker/yeezy/2.jfif";

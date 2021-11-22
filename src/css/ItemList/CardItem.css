@@ -1,4 +1,4 @@
-.containerGralProd {
+.productContainer {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -16,7 +16,7 @@
 }
 
 .itemCard-img {
-  width: 200px;
+  width: 250px;
   cursor: pointer;
 }
 
@@ -67,14 +67,14 @@
   top: 1px;
 }
 
-.mensajeSinStock {
+.outOfStockMessage {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.mensajeSinStock h3 {
+.outOfStockMessage h3 {
   font-size: 45px;
   letter-spacing: -1px;
   font-weight: 800;
