@@ -48,7 +48,7 @@ export default function Footer() {
             href="https://github.com/Archer-ecommerce/archer"
           >
             {" "}
-            Archer Team
+            Archer Sports Team
           </a>
         </h5>
       </div>

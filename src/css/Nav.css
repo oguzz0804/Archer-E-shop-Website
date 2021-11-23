@@ -38,18 +38,14 @@ header {
   font-size: 40px;
   text-transform: uppercase;
   background: #0147bf;
-  background: -webkit-linear-gradient(
-    to right,
-    #0147bf 0%,
-    #0f3678 50%,
-    #091b39 100%
-  );
-  background: -moz-linear-gradient(
-    to right,
-    #0147bf 0%,
-    #0f3678 50%,
-    #091b39 100%
-  );
+  background: -webkit-linear-gradient(to right,
+      #0147bf 0%,
+      #0f3678 50%,
+      #091b39 100%);
+  background: -moz-linear-gradient(to right,
+      #0147bf 0%,
+      #0f3678 50%,
+      #091b39 100%);
   background: linear-gradient(to right, #0147bf 0%, #0f3678 50%, #091b39 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -71,14 +67,17 @@ header {
 header nav {
   display: flex;
 }
+
 nav ul {
   margin: 0;
   padding: 0;
 }
+
 nav ul li {
   list-style: none;
   display: inline-block;
 }
+
 nav ul li .buttonNavBar {
   text-decoration: none;
   /* text-transform: uppercase; */
@@ -86,6 +85,7 @@ nav ul li .buttonNavBar {
   padding: 0 15px;
   font-size: 17px;
 }
+
 .buttonNavBar:hover {
   color: #0147bf;
 }
@@ -100,6 +100,7 @@ nav ul li .buttonNavBar {
   display: flex;
   align-items: center;
 }
+
 .nav-cart span {
   position: absolute;
   top: -13px;
@@ -124,7 +125,10 @@ header .close {
 }
 
 .widgetDesktop {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .widgetMobile {
@@ -139,6 +143,7 @@ header .close {
   .widgetMobile {
     display: block;
   }
+
   .logo h1 {
     margin: 20px 0;
     font-size: 30px;
@@ -156,6 +161,7 @@ header .close {
     justify-content: space-around;
     width: 100%;
   }
+
   header ul {
     position: fixed;
     top: 0;
@@ -172,23 +178,28 @@ header .close {
     transition: 0.5s linear;
     padding: 0;
   }
+
   header .menu,
   header .close {
     display: block;
   }
+
   header .close {
     position: absolute;
     top: 10px;
     left: 20px;
   }
+
   nav .nav-cart span {
     top: -12px;
     z-index: 2;
   }
+
   header ul.toggle {
     left: 0;
     margin: 0;
   }
+
   input {
     display: none;
   }

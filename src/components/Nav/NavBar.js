@@ -4,10 +4,14 @@ import "../../css/Nav.css";
 import CartWidget from "./CartWidget";
 import Menu from "../../images/bars-solid.svg";
 import Close from "../../images/times-solid.svg";
+import Logo from '../../images/logos/archer_logo.jpeg'
+import { useAuth } from "../../context/AuthContext";
+import LoginPage from '../auth/LoginPage.js'
 
 export default function Nav() {
   const [state, setState] = useState({ toggle: false });
-
+  const { currentUser, logout } = useAuth();
+  
   function menuToggle() {
     setState({ toggle: !state.toggle });
   }
@@ -18,7 +22,7 @@ export default function Nav() {
     <div className="productLinks">
       <div className="logo logoDesktop" alt="icon FlatIcon">
         <Link to="/">
-          <h1>Flex</h1>
+          <img src={Logo} alt="LOGO" />
         </Link>
       </div>
       <header>
@@ -27,7 +31,7 @@ export default function Nav() {
         </div>
         <div className="logo logoMobile" alt="icon FlatIcon">
           <Link to="/">
-            <h1>Flex</h1>
+            <img src={Logo} alt="LOGO" />
           </Link>
         </div>
         <nav>
@@ -88,7 +92,28 @@ export default function Nav() {
         <NavLink to="/cart">
           <CartWidget />
         </NavLink>
+        {
+          currentUser? (
+          <Link to="/login">
+            <img 
+            style={{marginLeft:25}}
+            src="https://img.icons8.com/doodle/50/000000/group.png" alt="auth"
+            />
+        </Link>
+          ) : (
+            <Link to="/login">
+            <img 
+              style={{marginLeft:25}}
+              src="https://img.icons8.com/doodle/50/000000/group.png" alt="auth"
+            />
+            </Link>
+          )
+        }
+
+
       </div>
+  
     </div>
   );
 }
+ 

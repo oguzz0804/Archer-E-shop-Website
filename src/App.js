@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./components/Nav/NavBar";
 import { IndexPresentation } from "./components/Home/IndexPresentation";
@@ -6,13 +7,14 @@ import ItemDetailContainer from "./components/ItemDetails/ItemDetailContainer";
 import CardContainer from "./components/Cart/CardContainer";
 import Footer from "./components/Footer/Footer";
 import { PurchaseForm } from "./components/Cart/PurchaseForm";
-
-//Context
+import LoginPage from "./components/auth/LoginPage.js"
+import {AuthProvider} from "./context/AuthContext"
 import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <Router>
+      <AuthProvider>
       <CartProvider>
         <NavBar />
 
@@ -20,6 +22,10 @@ function App() {
           <Route exact path="/">
             <IndexPresentation />
             <ItemListContainer />
+          </Route>
+
+          <Route path="/login">
+              <LoginPage />
           </Route>
 
           <Route exact path="/category/all">
@@ -43,7 +49,9 @@ function App() {
           </Route>
         </Switch>
       </CartProvider>
+      </AuthProvider>
       <Footer />
+
     </Router>
   );
 }
