@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useAuth } from "../../context/AuthContext";
 import "../../css/login/login.css";
-
+import {useHistory } from "react-router-dom";
 function LoginPage() {
   //const usernameRef = useRef();
   const loginEmailRef = useRef();
@@ -14,7 +14,8 @@ function LoginPage() {
   const [signUpError, setSignUpError] = useState("");
   const [loginLoading, setLoginLoading] = useState(false);
   const [signUpLoading, setSignUpLoading] = useState(false);
-
+  let history = useHistory()
+  
   async function handleLogin(e) {
     e.preventDefault();
 
@@ -42,6 +43,7 @@ function LoginPage() {
       setSignUpError("");
       setSignUpLoading(true);
       await signup(signUpEmailRef.current.value, signUpPasswordRef.current.value);
+      history.push("/")
     } catch {
       //console.log("dsvdsav")
       setSignUpError("Failed to create an account");
@@ -52,6 +54,29 @@ function LoginPage() {
 
   return (
     <div className="globalDiv">
+      <div style={{textAlign: 'center', color: 'white'}}>
+        {signUpError || signUpErrMsg ? (
+            <div role="alert">
+              <div className="flex justify-center align-middle m-2">
+                 <p>{signUpError || signUpErrMsg.slice(22, -2)}</p>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+      </div>
+      <div style={{textAlign: 'center', color: 'white'}}>
+        {loginError || loginErrMsg ? (
+            <div role="alert">
+              <div className="flex justify-center align-middle m-2">
+                 <p>{loginError || loginErrMsg.slice(22, -2)}</p>
+              </div>
+            </div>
+          ) : (
+            ""
+          )}
+      </div>
+
       <div className="main">
         <input className="formInput" type="checkbox" id="chk" aria-hidden="true" />
 
@@ -60,7 +85,8 @@ function LoginPage() {
             <label htmlFor="chk" aria-hidden="true">
               Sign up
             </label>   
-            {loginErrMsg}         
+
+
             <input 
               className="formInput" 
               ref={signUpEmailRef}
@@ -95,11 +121,11 @@ function LoginPage() {
         </div>
 
         <div className="login">
+
           <form onSubmit={handleLogin}>
             <label htmlFor="chk" aria-hidden="true">
               Login
             </label>
-            {signUpErrMsg}
             <input 
               className="formInput" 
               type="email" 

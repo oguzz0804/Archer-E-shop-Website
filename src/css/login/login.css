@@ -2,11 +2,13 @@
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     font-family: 'Jost', sans-serif;
-    background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
+    background: rgb(82, 89, 133);
+    background: linear-gradient(90deg, rgba(82, 89, 133, 1) 21%, rgba(55, 83, 153, 1) 52%, rgba(114, 123, 173, 1) 80%);
 }
 
 .main {
@@ -41,16 +43,16 @@ label {
 }
 
 @media only screen and (max-width: 920px) {
-    
-label {
-    margin: 10px;
-}
 
-.main {
-    height: 500px;
-}
+    label {
+        margin: 10px;
+    }
 
-} 
+    .main {
+        height: 500px;
+    }
+
+}
 
 .formInput {
     width: 65%;
@@ -72,7 +74,7 @@ label {
     justify-content: center;
     display: block;
     color: #fff;
-    background: #573b8a;
+    background: #010002;
     font-size: 1em;
     font-weight: bold;
     margin-top: 20px;
@@ -82,10 +84,12 @@ label {
     transition: .2s ease-in;
     cursor: pointer;
 }
- 
+
 
 .formBtn:hover {
-    background: #6d44b8;
+    background: #d2d2e4;
+    color: #000;
+    border: 2px solid #000;
 }
 
 .login {
