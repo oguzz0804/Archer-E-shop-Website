@@ -27,8 +27,8 @@ const ItemDetailContainer = () => {
             setStock("none");
           }
           // console.log("data: ", data.data());
-          const detalle = data.data();
-          setProductDetail(detalle);
+          const detail = data.data();
+          setProductDetail(detail);
         })
         .catch((error) => {
           console.error("Error", error);
