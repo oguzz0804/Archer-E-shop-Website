@@ -29,14 +29,14 @@ export default function Footer() {
         <Link to={"/category/all"}>
           <span>All</span>
         </Link>
-        <Link to={"/category/Nike"}>
-          <span>Nike</span>
+        <Link to={"/category/Shoes"}>
+          <span>Shoes</span>
         </Link>
-        <Link to={"/category/Jordan"}>
-          <span>Jordan</span>
+        <Link to={"/category/Clothes"}>
+          <span>Clothes</span>
         </Link>
-        <Link to={"/category/Yeezy"}>
-          <span>Yeezy</span>
+        <Link to={"/category/Equipments"}>
+          <span>Equipments</span>
         </Link>
       </div>
 

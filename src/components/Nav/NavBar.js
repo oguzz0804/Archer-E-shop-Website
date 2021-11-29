@@ -5,18 +5,16 @@ import CartWidget from "./CartWidget";
 import Menu from "../../images/bars-solid.svg";
 import Close from "../../images/times-solid.svg";
 import Logo from '../../images/logos/archer_logo.jpeg'
-import { useAuth } from "../../context/AuthContext";
-import LoginPage from '../auth/LoginPage.js'
 
 export default function Nav() {
   const [state, setState] = useState({ toggle: false });
-  const { currentUser, logout } = useAuth();
-  
+
   function menuToggle() {
     setState({ toggle: !state.toggle });
   }
 
   const { toggle } = state;
+
 
   return (
     <div className="productLinks">
@@ -47,30 +45,32 @@ export default function Nav() {
             </li>
             <li>
               <NavLink
-                to="/category/Nike"
+                to="/category/Shoes"
                 className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
-                Nike
+                Shoes
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/category/Jordan"
+                to="/category/Clothes"
                 className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
-                Jordan
+                Clothes
               </NavLink>
             </li>
             <li>
               <NavLink
-                to="/category/Yeezy"
+                to="/category/Equipments"
                 className="buttonNavBar"
                 activeStyle={{ color: "#0147bf" }}
               >
-                Yeezy
+                Equipments
               </NavLink>
+            </li>
+            <li>
             </li>
             <li className="close">
               <img
@@ -92,28 +92,9 @@ export default function Nav() {
         <NavLink to="/cart">
           <CartWidget />
         </NavLink>
-        {
-          currentUser? (
-          <Link to="/login">
-            <img 
-            style={{marginLeft:25}}
-            src="https://img.icons8.com/doodle/50/000000/group.png" alt="auth"
-            />
-        </Link>
-          ) : (
-            <Link to="/login">
-            <img 
-              style={{marginLeft:25}}
-              src="https://img.icons8.com/doodle/50/000000/group.png" alt="auth"
-            />
-            </Link>
-          )
-        }
-
 
       </div>
-  
+
     </div>
   );
 }
- 

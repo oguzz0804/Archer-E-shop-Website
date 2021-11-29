@@ -7,52 +7,50 @@ import ItemDetailContainer from "./components/ItemDetails/ItemDetailContainer";
 import CardContainer from "./components/Cart/CardContainer";
 import Footer from "./components/Footer/Footer";
 import { PurchaseForm } from "./components/Cart/PurchaseForm";
-import LoginPage from "./components/auth/LoginPage.js"
-import {AuthProvider} from "./context/AuthContext"
 import { CartProvider } from "./context/CartContext";
 
 function App() {
+
   return (
-    <Router>
-      <AuthProvider>
-      <CartProvider>
-        <NavBar />
 
-        <Switch>
-          <Route exact path="/">
-            <IndexPresentation />
-            <ItemListContainer />
-          </Route>
+        <Router>
 
-          <Route path="/login">
-              <LoginPage />
-          </Route>
+          <CartProvider>
+            <NavBar />
 
-          <Route exact path="/category/all">
-            <ItemListContainer />
-          </Route>
+            <Switch>
 
-          <Route exact path="/category/:categoryId">
-            <ItemListContainer />
-          </Route>
+              <Route exact path="/">
+                <IndexPresentation />
+                <ItemListContainer />
+              </Route>
 
-          <Route exact path="/item/:id">
-            <ItemDetailContainer />
-          </Route>
+              <Route exact path="/category/all">
+                <ItemListContainer />
+              </Route>
 
-          <Route exact path="/cart">
-            <CardContainer />
-          </Route>
+              <Route exact path="/category/:categoryId">
+                <ItemListContainer />
+              </Route>
 
-          <Route exact path="/form">
-            <PurchaseForm />
-          </Route>
-        </Switch>
-      </CartProvider>
-      </AuthProvider>
-      <Footer />
+              <Route exact path="/item/:id">
+                <ItemDetailContainer />
+              </Route>
 
-    </Router>
+              <Route exact path="/cart">
+                <CardContainer />
+              </Route>
+
+              <Route exact path="/form">
+                <PurchaseForm />
+              </Route>
+
+            </Switch>
+          </CartProvider>
+          <Footer />
+        </Router>
+
+
   );
 }
 
