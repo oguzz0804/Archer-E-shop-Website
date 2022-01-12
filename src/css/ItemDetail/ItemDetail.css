@@ -1,0 +1,283 @@
+.productNotExist {
+  margin: 80px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.productNotExist h3 {
+  margin-bottom: 30px;
+}
+
+.myContainerGeneral {
+  box-shadow: 2px 8px 20px #ddd;
+  transition: 0.5s linear;
+  padding: 10px 10px;
+  display: grid;
+  width: 800px;
+  margin: 40px auto 60px;
+  align-self: center;
+  justify-self: center;
+  grid-template-columns: 50% 50%;
+  grid-template-areas:
+    "details img"
+    "details img"
+    "details img";
+}
+
+.myContainer-image {
+  grid-area: img;
+  align-self: self-end;
+  justify-self: end;
+  margin-left: 30px;
+}
+
+.myContainer-image img {
+  width: 100%;
+}
+
+.myContainer-details {
+  grid-area: details;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.details-title h2 {
+  color: #000000;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+
+.details-title h3 {
+  color: #7b7f85;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.myContainer-mySize {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.myContainer-mySize p {
+  margin: 0;
+  padding-right: 15px;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.myContainer-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 40px 0;
+}
+
+.count-button {
+  width: 35px;
+  height: 35px;
+  border-radius: 35%;
+  cursor: pointer;
+  background-color: black;
+  border: 1px solid #000000;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+}
+
+.count-button:active {
+  position: relative;
+  top: 1px;
+}
+
+.button-span {
+  margin: 0 30px;
+  font-size: 20px;
+}
+
+.purchaseButton {
+  margin-left: 30px;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 28px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 5px 5px;
+  width: 150px;
+  height: 40px;
+}
+
+.purchaseButton:active {
+  position: relative;
+  top: 1px;
+}
+
+.myContainer-cards {
+  display: flex;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.myContainer-cards div {
+  margin-right: 20px;
+}
+
+.content-cards img {
+  width: 30px;
+}
+
+.myContainer-summarize {
+  margin: 40px 10px;
+}
+
+.myContainer-summarize h4 {
+  font-size: 25px;
+  color: #7b7f85;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.myContainer-summarize .summarize-button {
+  cursor: pointer;
+  background-color: black;
+  border-radius: 28px;
+  border: 1px solid #000000;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  padding: 5px 5px;
+  width: 230px;
+  height: 45px;
+}
+
+@media only screen and (max-width: 830px) {
+  .myContainerGeneral {
+    box-shadow: 2px 8px 20px #ddd;
+    transition: 0.5s linear;
+    padding: 10px 10px;
+    display: grid;
+    width: 500px;
+    margin: 40px auto 60px;
+    align-self: center;
+    justify-self: center;
+    grid-template-columns: 100%;
+    grid-template-areas: "img" "details";
+  }
+
+  .myContainer-image {
+    grid-area: img;
+    align-self: center;
+    justify-self: center;
+    margin: 0 0 40px;
+  }
+
+  .myContainer-image img {
+    width: 100%;
+  }
+
+  .myContainer-details {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+
+  .details-title h2 {
+    font-size: 35px;
+  }
+
+  .details-title h3 {
+    color: #7b7f85;
+    font-size: 30px;
+  }
+
+  .myContainer-mySize {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: space-evenly;
+  }
+
+  .myContainer-mySize p {
+    font-size: 20px;
+  }
+
+  .myContainer-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 40px 0;
+    justify-content: center;
+  }
+
+  .myContainer-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .myContainer-summarize {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 547px) {
+  .myContainerGeneral {
+    box-shadow: 2px 8px 20px #ddd;
+    transition: 0.5s linear;
+    display: grid;
+    width: 300px;
+    margin: 40px auto 60px;
+    align-self: center;
+    justify-self: center;
+    grid-template-columns: 100%;
+    grid-template-areas: "img" "details";
+  }
+  .myContainer-image {
+    grid-area: img;
+    margin: 10px 10px 20px;
+  }
+  .myContainer-details {
+    grid-area: details;
+    display: flex;
+    flex-direction: column;
+    margin-left: 0;
+    padding: 0 15px;
+    justify-content: space-evenly;
+    height: 100%;
+  }
+  .myContainer-mySize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: space-evenly;
+  }
+
+  .myContainer-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0;
+  }
+
+  .purchaseButton {
+    padding: 5px 5px;
+    width: 150px;
+    height: 40px;
+    margin: 20px 0 0;
+  }
+}

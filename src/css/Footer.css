@@ -1,0 +1,39 @@
+.footer {
+  margin: 40px 0 0;
+  padding: 40px 0;
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer .socialMedia {
+  display: flex;
+}
+
+.footer .socialMedia img {
+  width: 40px;
+  margin: 20px 10px;
+  cursor: pointer;
+}
+
+.footer .links {
+  display: flex;
+}
+
+.footer .links a {
+  text-decoration: none;
+  margin: 10px 10px;
+}
+
+.footer .links span {
+  color: white;
+  cursor: pointer;
+}
+
+.footer .copyRights {
+  color: white;
+  margin: 20px 0;
+  cursor: pointer;
+}

@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap");
+
+.productLinks {
+  display: flex;
+  padding: 10px 0;
+  justify-content: space-around;
+  align-items: center;
+  background: rgb(255, 255, 255);
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+header {
+  min-height: 70px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 35px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.logo img {
+  width: 100px;
+}
+
+.logo h1 {
+  /* margin: 40px 0 20px; */
+  font-weight: 800;
+  font-size: 40px;
+  text-transform: uppercase;
+  background: #0147bf;
+  background: -webkit-linear-gradient(to right,
+      #0147bf 0%,
+      #0f3678 50%,
+      #091b39 100%);
+  background: -moz-linear-gradient(to right,
+      #0147bf 0%,
+      #0f3678 50%,
+      #091b39 100%);
+  background: linear-gradient(to right, #0147bf 0%, #0f3678 50%, #091b39 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo a {
+  text-decoration: none;
+}
+
+.logoDesktop {
+  display: flex;
+}
+
+.logoMobile {
+  display: none;
+}
+
+header nav {
+  display: flex;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+nav ul li .buttonNavBar {
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  color: black;
+  padding: 0 15px;
+  font-size: 17px;
+}
+
+.buttonNavBar:hover {
+  color: #0147bf;
+}
+
+.buttonNavBarActive {
+  color: #0147bf;
+}
+
+.nav-cart {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-cart span {
+  position: absolute;
+  top: -13px;
+  right: -15px;
+  background: #0146bc;
+  font-size: 12px;
+  color: white;
+  padding: 2px 7px;
+  border-radius: 50%;
+  z-index: 1;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.nav-cart img {
+  width: 35px;
+}
+
+header .menu,
+header .close {
+  cursor: pointer;
+  display: none;
+}
+
+.widgetDesktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.widgetMobile {
+  display: none;
+}
+
+@media (max-width: 650px) {
+  .widgetDesktop {
+    display: none;
+  }
+
+  .widgetMobile {
+    display: block;
+  }
+
+  .logo h1 {
+    margin: 20px 0;
+    font-size: 30px;
+  }
+
+  .logoDesktop {
+    display: none;
+  }
+
+  .logoMobile {
+    display: block;
+  }
+
+  header {
+    justify-content: space-around;
+    width: 100%;
+  }
+
+  header ul {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    background: white;
+    z-index: 99;
+    opacity: 0.97;
+    transition: 0.5s linear;
+    padding: 0;
+  }
+
+  header .menu,
+  header .close {
+    display: block;
+  }
+
+  header .close {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+  }
+
+  nav .nav-cart span {
+    top: -12px;
+    z-index: 2;
+  }
+
+  header ul.toggle {
+    left: 0;
+    margin: 0;
+  }
+
+  input {
+    display: none;
+  }
+}
